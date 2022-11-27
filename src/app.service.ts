@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { AppConfigService } from './config/app-config.service';
+// import { ConfigService } from '@nestjs/config';
+import { DatabaseConfigService } from './config/database/database-config.service';
 
 @Injectable()
 export class AppService {
   constructor(
-    private readonly appConfigService: AppConfigService,
-    private readonly configService: ConfigService,
+    // private readonly configService: ConfigService,
+    private readonly databaseConfigService: DatabaseConfigService,
   ) {}
 
   getHello(): string {
@@ -14,7 +14,7 @@ export class AppService {
   }
 
   getDatabaseName(): string {
-    return this.appConfigService.databaseName;
     // return this.configService.get('DATABASE_NAME'); // This also works
+    return this.databaseConfigService.name;
   }
 }

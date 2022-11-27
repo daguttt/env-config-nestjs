@@ -8,8 +8,4 @@ export class AppConfigService {
   get port(): number {
     return this.configService.get('APP_PORT');
   }
-
-  get databaseName(): string {
-    return this.configService.get('DATABASE_NAME');
-  }
 }
