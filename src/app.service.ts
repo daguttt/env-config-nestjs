@@ -1,20 +1,15 @@
 import { Injectable } from '@nestjs/common';
-// import { ConfigService } from '@nestjs/config';
-import { DatabaseConfigService } from './config/database/database-config.service';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AppService {
-  constructor(
-    // private readonly configService: ConfigService,
-    private readonly databaseConfigService: DatabaseConfigService,
-  ) {}
+  constructor(private readonly configService: ConfigService) {}
 
   getHello(): string {
     return 'Hello World!';
   }
 
   getDatabaseName(): string {
-    // return this.configService.get('DATABASE_NAME'); // This also works
-    return this.databaseConfigService.name;
+    return this.configService.get('database.name');
   }
 }
