@@ -9,4 +9,9 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('database-name')
+  getDatabaseName(): string {
+    return this.appService.getDatabaseName();
+  }
 }
